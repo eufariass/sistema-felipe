@@ -11,7 +11,7 @@ import { formatCurrency, formatDate } from "@/lib/utils";
 export default function TransactionsPage() {
   const [showFilters, setShowFilters] = useState(false);
 
-  const transactions = []; // Will be fetched from Supabase
+  const transactions: any[] = []; // Will be fetched from Supabase
 
   return (
     <div>

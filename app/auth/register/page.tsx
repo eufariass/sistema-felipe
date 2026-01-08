@@ -50,15 +50,6 @@ export default function RegisterPage() {
       setError(signUpError.message);
       setLoading(false);
     } else {
-      // Update profile with full name
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        await supabase
-          .from("profiles")
-          .update({ full_name: fullName })
-          .eq("id", user.id);
-      }
-
       router.push("/dashboard");
       router.refresh();
     }
