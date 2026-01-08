@@ -19,7 +19,7 @@ export default function CategoriesPage() {
     icon: "tag",
   });
 
-  const categories = []; // Will be fetched from Supabase
+  const categories: any[] = []; // Will be fetched from Supabase
 
   return (
     <div>

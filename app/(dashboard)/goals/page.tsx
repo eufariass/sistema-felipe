@@ -12,7 +12,7 @@ import { formatCurrency, formatDate } from "@/lib/utils";
 export default function GoalsPage() {
   const [showForm, setShowForm] = useState(false);
 
-  const goals = []; // Will be fetched from Supabase
+  const goals: any[] = []; // Will be fetched from Supabase
 
   const calculateProgress = (current: number, target: number) => {
     return Math.min((current / target) * 100, 100);

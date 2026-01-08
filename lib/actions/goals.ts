@@ -4,10 +4,9 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { goalSchema, milestoneSchema, type GoalInput, type MilestoneInput } from "@/lib/validations/goals";
-import { Database } from "@/types/database";
 
 export async function createGoal(data: GoalInput) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -35,7 +34,7 @@ export async function createGoal(data: GoalInput) {
 }
 
 export async function updateGoal(id: string, data: Partial<GoalInput>) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -60,7 +59,7 @@ export async function updateGoal(id: string, data: Partial<GoalInput>) {
 }
 
 export async function deleteGoal(id: string) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -82,7 +81,7 @@ export async function deleteGoal(id: string) {
 }
 
 export async function getGoals() {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -104,7 +103,7 @@ export async function getGoals() {
 }
 
 export async function createMilestone(data: MilestoneInput) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const validated = milestoneSchema.parse(data);
 
@@ -121,7 +120,7 @@ export async function createMilestone(data: MilestoneInput) {
 }
 
 export async function updateMilestone(id: string, data: Partial<MilestoneInput>) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const { data: milestone, error } = await supabase
     .from("milestones")

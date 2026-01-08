@@ -13,7 +13,7 @@ export default function TasksPage() {
   const [showForm, setShowForm] = useState(false);
   const [filter, setFilter] = useState<"all" | "pending" | "in_progress" | "completed">("all");
 
-  const tasks = []; // Will be fetched from Supabase
+  const tasks: any[] = []; // Will be fetched from Supabase
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {

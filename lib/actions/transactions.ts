@@ -4,10 +4,9 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { transactionSchema, type TransactionInput } from "@/lib/validations/finance";
-import { Database } from "@/types/database";
 
 export async function createTransaction(data: TransactionInput) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -55,7 +54,7 @@ export async function createTransaction(data: TransactionInput) {
 }
 
 export async function updateTransaction(id: string, data: Partial<TransactionInput>) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -122,7 +121,7 @@ export async function updateTransaction(id: string, data: Partial<TransactionInp
 }
 
 export async function deleteTransaction(id: string) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -179,7 +178,7 @@ export async function getTransactions(filters?: {
   accountId?: string;
   type?: "income" | "expense" | "transfer";
 }) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },

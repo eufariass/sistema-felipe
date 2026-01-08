@@ -20,7 +20,7 @@ export default function AccountsPage() {
     icon: "wallet",
   });
 
-  const accounts = []; // This will be fetched from Supabase
+  const accounts: any[] = []; // This will be fetched from Supabase
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

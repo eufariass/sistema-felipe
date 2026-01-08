@@ -4,10 +4,9 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { categorySchema, type CategoryInput } from "@/lib/validations/finance";
-import { Database } from "@/types/database";
 
 export async function createCategory(data: CategoryInput) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -35,7 +34,7 @@ export async function createCategory(data: CategoryInput) {
 }
 
 export async function updateCategory(id: string, data: Partial<CategoryInput>) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -60,7 +59,7 @@ export async function updateCategory(id: string, data: Partial<CategoryInput>) {
 }
 
 export async function deleteCategory(id: string) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -82,7 +81,7 @@ export async function deleteCategory(id: string) {
 }
 
 export async function getCategories() {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },

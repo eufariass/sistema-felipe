@@ -4,10 +4,9 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { taskSchema, subtaskSchema, type TaskInput, type SubtaskInput } from "@/lib/validations/tasks";
-import { Database } from "@/types/database";
 
 export async function createTask(data: TaskInput) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -35,7 +34,7 @@ export async function createTask(data: TaskInput) {
 }
 
 export async function updateTask(id: string, data: Partial<TaskInput>) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -65,7 +64,7 @@ export async function updateTask(id: string, data: Partial<TaskInput>) {
 }
 
 export async function deleteTask(id: string) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -91,7 +90,7 @@ export async function getTasks(filters?: {
   priority?: "low" | "medium" | "high" | "urgent";
   category?: string;
 }) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -126,7 +125,7 @@ export async function getTasks(filters?: {
 }
 
 export async function createSubtask(data: SubtaskInput) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const validated = subtaskSchema.parse(data);
 
@@ -143,7 +142,7 @@ export async function createSubtask(data: SubtaskInput) {
 }
 
 export async function updateSubtask(id: string, data: Partial<SubtaskInput>) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const { data: subtask, error } = await supabase
     .from("subtasks")
