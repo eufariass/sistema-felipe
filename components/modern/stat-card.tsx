@@ -6,11 +6,11 @@ import { ReactNode } from "react";
 
 interface StatCardProps {
   title: string;
-  value: string | number;
+  value: ReactNode;
   description?: string;
   icon: LucideIcon;
   trend?: {
-    value: string;
+    value: string | number;
     isPositive: boolean;
   };
   gradient?: string;
